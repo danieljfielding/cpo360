@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 52" width="210" height="52">
+  <g transform="translate(4, 4)">
+    <circle cx="22" cy="22" r="15" stroke="#009e88" stroke-width="0.6" fill="none" opacity="0.15"/>
+    <circle cx="22" cy="22" r="9" stroke="#009e88" stroke-width="0.8" fill="none" opacity="0.25"/>
+    <circle cx="22" cy="22" r="5" fill="#009e88"/>
+    <line x1="22" y1="17" x2="22" y2="4" stroke="#009e88" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="27" y1="18" x2="38" y2="10" stroke="#009e88" stroke-width="1.2" stroke-linecap="round" opacity="0.65"/>
+    <line x1="28" y1="26" x2="39" y2="33" stroke="#009e88" stroke-width="1.2" stroke-linecap="round" opacity="0.45"/>
+    <line x1="22" y1="27" x2="22" y2="41" stroke="#009e88" stroke-width="1.2" stroke-linecap="round" opacity="0.35"/>
+    <line x1="17" y1="26" x2="6" y2="33" stroke="#009e88" stroke-width="1.2" stroke-linecap="round" opacity="0.25"/>
+    <circle cx="22" cy="3" r="2.2" fill="#009e88" opacity="0.85"/>
+    <circle cx="39" cy="9" r="1.8" fill="#009e88" opacity="0.62"/>
+    <circle cx="40" cy="34" r="1.4" fill="#009e88" opacity="0.44"/>
+    <circle cx="22" cy="42" r="1.8" fill="#009e88" opacity="0.3"/>
+    <circle cx="5" cy="34" r="1.4" fill="#009e88" opacity="0.22"/>
+  </g>
+  <text x="56" y="38" font-family="'Syne','Arial Black',sans-serif" font-weight="800" font-size="32" letter-spacing="-1" fill="#111111">CPO</text>
+  <text x="134" y="38" font-family="'IBM Plex Sans','Helvetica Neue',Arial,sans-serif" font-weight="300" font-size="32" letter-spacing="0" fill="#009e88">360</text>
+</svg>
