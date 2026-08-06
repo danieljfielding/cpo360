@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CPO360 — procurement performance platform</title>
+<link rel="stylesheet" href="_ds/bluenorth-design-system-3d5da555-e921-45ea-af6e-2b43b6cb46ad/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/bluenorth-design-system-3d5da555-e921-45ea-af6e-2b43b6cb46ad/styles.css">
+<script src="_ds/bluenorth-design-system-3d5da555-e921-45ea-af6e-2b43b6cb46ad/_ds_bundle.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#F7F7F4;color:#0F2547;font-family:'Public Sans',system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:#0F2547;text-decoration:none}
+a:hover{color:#8A6516}
+input,textarea,button,select{font-family:inherit}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@media(max-width:960px){.cpo-split{grid-template-columns:1fr !important}.cpo-hide-sm{display:none !important}.cpo-pad{padding-left:24px !important;padding-right:24px !important}.cpo-bleed{width:100% !important}.cpo-row{grid-template-columns:1fr !important;gap:10px !important}}
+</style>
+</helmet>
+
+<div style="max-width:100%;overflow-x:hidden">
+
+<header style="position:sticky;top:0;z-index:50;background:rgba(247,247,244,0.92);backdrop-filter:blur(10px);border-bottom:1px solid #DCE0E5">
+  <div class="cpo-pad" style="max-width:1400px;margin:0 auto;padding:0 48px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:32px">
+    <a href="#top" style="display:flex;align-items:center"><img src="cpo360-logo.svg" alt="CPO360" style="height:44px;width:auto;display:block"></a>
+    <nav class="cpo-hide-sm" style="display:flex;align-items:center;gap:30px;font-size:14.5px;color:#5f5e5a">
+      <a href="#dashboard" style="color:#5f5e5a">Dashboard</a>
+      <a href="#modules" style="color:#5f5e5a">Modules</a>
+      <a href="#who" style="color:#5f5e5a">Who it's for</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:8px">
+      <a href="https://app.cpo360.com" class="cpo-hide-sm" style="font-size:14px;color:#5f5e5a;padding:9px 12px">Log in</a>
+      <button onClick="{{ openModal }}" style="background:none;border:none;cursor:pointer;font-size:14px;color:#5f5e5a;padding:9px 12px">Register</button>
+      <a href="#demo" style="background:#0F2547;color:#fff;font-size:14px;font-weight:500;padding:11px 20px;border-radius:8px" style-hover="background:#1c386a">Book a demo</a>
+    </div>
+  </div>
+</header>
+
+<section id="top" style="background:radial-gradient(120% 110% at 0% 0%, #1c386a, #0F2547);color:#fff;overflow:hidden;position:relative">
+  <div class="cpo-pad cpo-split" style="max-width:1400px;margin:0 auto;padding:104px 48px 0;display:grid;grid-template-columns:0.92fr 1.18fr;gap:56px;align-items:end">
+    <div style="padding-bottom:104px;animation:rise 0.6s ease-out both">
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#C9A02E;margin-bottom:26px">Platform</p>
+      <h1 style="font-family:'Poppins',sans-serif;font-weight:600;font-size:clamp(2.6rem,4.4vw,3.9rem);line-height:1.04;letter-spacing:-0.035em;margin-bottom:22px;text-wrap:pretty;color:#fff">Run a world-class procurement function. Prove it too.</h1>
+      <p style="font-size:17px;line-height:1.65;color:rgba(255,255,255,0.62);max-width:520px;margin-bottom:36px;text-wrap:pretty">CPO360 gives you the tools to build capability, develop strategy, and understand your stakeholders and suppliers — then give your CFO, CEO and Board a clear picture of how procurement is performing.</p>
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:44px">
+        <a href="#demo" style="background:#C9A02E;color:#0F2547;font-size:15px;font-weight:600;padding:14px 26px;border-radius:8px" style-hover="background:#E5B73B">Book a demo</a>
+        <a href="#modules" style="border:1px solid rgba(255,255,255,0.28);color:#fff;font-size:15px;font-weight:500;padding:13px 24px;border-radius:8px" style-hover="background:rgba(255,255,255,0.07)">See the tools</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,auto);gap:0;border-top:1px solid rgba(255,255,255,0.14);padding-top:22px;width:fit-content">
+        <div style="padding-right:34px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:24px;color:#fff;letter-spacing:-0.02em">9</div>
+          <div style="font-size:12.5px;color:rgba(255,255,255,0.45);margin-top:3px">Integrated modules</div>
+        </div>
+        <div style="padding:0 34px;border-left:1px solid rgba(255,255,255,0.14)">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:24px;color:#fff;letter-spacing:-0.02em">360°</div>
+          <div style="font-size:12.5px;color:rgba(255,255,255,0.45);margin-top:3px">View of performance</div>
+        </div>
+        <div style="padding-left:34px;border-left:1px solid rgba(255,255,255,0.14)">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:24px;color:#fff;letter-spacing:-0.02em">1</div>
+          <div style="font-size:12.5px;color:rgba(255,255,255,0.45);margin-top:3px">Dashboard for your Board</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cpo-bleed cpo-hide-sm" style="width:126%;animation:rise 0.7s 0.12s ease-out both">
+      <div style="background:#fff;border-radius:14px 14px 0 0;box-shadow:0 -2px 0 rgba(255,255,255,0.08),0 40px 90px rgba(0,0,0,0.42);overflow:hidden">
+        <div style="background:#0A1B33;padding:11px 16px;display:flex;align-items:center;gap:14px;border-bottom:1px solid rgba(255,255,255,0.07)">
+          <span style="font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;color:#fff">CPO<span style="color:#C9A02E">360</span></span>
+          <span style="display:flex;gap:16px;font-size:11px;color:rgba(255,255,255,0.4)"><span style="color:#fff;border-bottom:1.5px solid #C9A02E;padding-bottom:2px">Overview</span><span>Team</span><span>Categories</span></span>
+          <span style="margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:0.08em">Q2 2025</span>
+        </div>
+        <div style="padding:18px;background:#F7F7F4">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px">
+            <span style="font-family:'Poppins',sans-serif;font-weight:600;font-size:14px;color:#0F2547">CPO performance dashboard</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:#888780">Updated 14 Jul</span>
+          </div>
+          <div class="cpo-row" style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:10px">
+            <div style="background:#fff;border:1px solid #DCE0E5;border-radius:10px;padding:12px 14px">
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#888780;margin-bottom:6px">Savings delivered</div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:21px;color:#0F2547;letter-spacing:-0.02em">$24.6M</div>
+              <div style="font-size:10.5px;color:#1D9E75;margin-top:3px">↑ 12% vs target</div>
+            </div>
+            <div style="background:#fff;border:1px solid #DCE0E5;border-radius:10px;padding:12px 14px">
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#888780;margin-bottom:6px">Spend managed</div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:21px;color:#0F2547;letter-spacing:-0.02em">72%</div>
+              <div style="font-size:10.5px;color:#1D9E75;margin-top:3px">↑ 8pp YoY</div>
+            </div>
+            <div style="background:#fff;border:1px solid #DCE0E5;border-radius:10px;padding:12px 14px">
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#888780;margin-bottom:6px">Team capability</div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:21px;color:#0F2547;letter-spacing:-0.02em">71%</div>
+              <div style="font-size:10.5px;color:#1D9E75;margin-top:3px">↑ vs benchmark</div>
+            </div>
+          </div>
+          <div style="background:#fff;border:1px solid #DCE0E5;border-radius:10px;padding:14px 16px">
+            <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px">
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#888780">Procurement maturity — 12 dimensions</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#0F2547">3.8 / 5.0</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:9px">
+              <div style="display:grid;grid-template-columns:96px 1fr 34px;gap:10px;align-items:center">
+                <span style="font-size:10.5px;color:#5f5e5a">Category mgmt</span>
+                <span style="height:5px;background:#EFEDE6;border-radius:3px;display:block"><span style="display:block;height:5px;width:82%;background:#0F2547;border-radius:3px"></span></span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#5f5e5a;text-align:right">82%</span>
+              </div>
+              <div style="display:grid;grid-template-columns:96px 1fr 34px;gap:10px;align-items:center">
+                <span style="font-size:10.5px;color:#5f5e5a">Strategy</span>
+                <span style="height:5px;background:#EFEDE6;border-radius:3px;display:block"><span style="display:block;height:5px;width:78%;background:#0F2547;border-radius:3px"></span></span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#5f5e5a;text-align:right">78%</span>
+              </div>
+              <div style="display:grid;grid-template-columns:96px 1fr 34px;gap:10px;align-items:center">
+                <span style="font-size:10.5px;color:#5f5e5a">Biz partnering</span>
+                <span style="height:5px;background:#EFEDE6;border-radius:3px;display:block"><span style="display:block;height:5px;width:71%;background:#0F2547;border-radius:3px"></span></span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#5f5e5a;text-align:right">71%</span>
+              </div>
+              <div style="display:grid;grid-template-columns:96px 1fr 34px;gap:10px;align-items:center">
+                <span style="font-size:10.5px;color:#5f5e5a">Sustainability</span>
+                <span style="height:5px;background:#EFEDE6;border-radius:3px;display:block"><span style="display:block;height:5px;width:52%;background:#C9A02E;border-radius:3px"></span></span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#5f5e5a;text-align:right">52%</span>
+              </div>
+              <div style="display:grid;grid-template-columns:96px 1fr 34px;gap:10px;align-items:center">
+                <span style="font-size:10.5px;color:#5f5e5a">Digital</span>
+                <span style="height:5px;background:#EFEDE6;border-radius:3px;display:block"><span style="display:block;height:5px;width:48%;background:#C9A02E;border-radius:3px"></span></span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#5f5e5a;text-align:right">48%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cpo-pad" style="background:#F7F7F4;padding:96px 48px">
+  <div style="max-width:1400px;margin:0 auto">
+    <div class="cpo-split" style="display:grid;grid-template-columns:0.85fr 1fr;gap:56px;align-items:end;margin-bottom:56px">
+      <div>
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8A6516;margin-bottom:18px">The challenge</p>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:600;font-size:clamp(1.9rem,3vw,2.5rem);line-height:1.12;letter-spacing:-0.03em">Procurement has a visibility problem.</h2>
+      </div>
+      <p style="font-size:16.5px;color:#5f5e5a;line-height:1.7;max-width:520px;text-wrap:pretty">Most CPOs are doing great work. But without the right tools, it is hard to demonstrate it — to your team, your stakeholders, or your Board.</p>
+    </div>
+    <div class="cpo-row" style="display:grid;grid-template-columns:repeat(3,1fr);gap:44px;border-top:1px solid #0F2547">
+      <div style="padding-top:26px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#C9A02E;letter-spacing:0.12em;margin-bottom:16px">01</div>
+        <h3 style="font-family:'Poppins',sans-serif;font-weight:600;font-size:18px;letter-spacing:-0.02em;margin-bottom:10px">No single source of truth</h3>
+        <p style="font-size:15px;color:#5f5e5a;line-height:1.65;text-wrap:pretty">Spend data is messy. Categories are inconsistent. There is no clean view of what you are buying, from whom, and at what cost.</p>
+      </div>
+      <div style="padding-top:26px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#C9A02E;letter-spacing:0.12em;margin-bottom:16px">02</div>
+        <h3 style="font-family:'Poppins',sans-serif;font-weight:600;font-size:18px;letter-spacing:-0.02em;margin-bottom:10px">Hard to show the Board what good looks like</h3>
+        <p style="font-size:15px;color:#5f5e5a;line-height:1.65;text-wrap:pretty">CEOs and CFOs want evidence that procurement is a strategic function. Without a reporting layer, that story is hard to tell.</p>
+      </div>
+      <div style="padding-top:26px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#C9A02E;letter-spacing:0.12em;margin-bottom:16px">03</div>
+        <h3 style="font-family:'Poppins',sans-serif;font-weight:600;font-size:18px;letter-spacing:-0.02em;margin-bottom:10px">Team capability gaps stay hidden</h3>
+        <p style="font-size:15px;color:#5f5e5a;line-height:1.65;text-wrap:pretty">Without structured assessment, it is hard to know where your team excels, where they need development, and how that compares to best practice.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="dashboard" class="cpo-pad" style="background:#fff;border-top:1px solid #DCE0E5;padding:96px 48px">
+  <div style="max-width:1400px;margin:0 auto">
+    <div class="cpo-split" style="display:grid;grid-template-columns:0.85fr 1fr;gap:56px;align-items:end;margin-bottom:44px">
+      <div>
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8A6516;margin-bottom:18px">CPO dashboard</p>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:600;font-size:clamp(1.9rem,3vw,2.5rem);line-height:1.12;letter-spacing:-0.03em">One view. Everything that matters.</h2>
+      </div>
+      <div>
+        <p style="font-size:16.5px;color:#5f5e5a;line-height:1.7;max-width:520px;margin-bottom:18px;text-wrap:pretty">The CPO Dashboard ties all nine tools together into a single command centre — for you, and for the stakeholders you report to. Board-ready: export to PDF or share a read-only link.</p>
+        <a href="#demo" style="font-size:15px;font-weight:600;color:#8A6516;border-bottom:1px solid #C9A02E;padding-bottom:2px">Book a demo</a>
+      </div>
+    </div>
+
+    <div style="border:1px solid #DCE0E5;border-radius:14px;overflow:hidden;box-shadow:0 18px 44px rgba(22,29,43,0.09)">
+      <div style="background:#0A1B33;padding:0 20px;display:flex;align-items:center;gap:22px;height:54px">
+        <span style="font-family:'Poppins',sans-serif;font-size:14px;font-weight:600;color:#fff">CPO<span style="color:#C9A02E">360</span></span>
+        <div style="display:flex;gap:4px;align-items:center;flex-wrap:wrap" role="tablist">
+          <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4">
+            <button onClick="{{ t.onClick }}" style="{{ t.style }}">{{ t.label }}</button>
+          </sc-for>
+        </div>
+        <span class="cpo-hide-sm" style="margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:rgba(255,255,255,0.4);letter-spacing:0.1em">Q2 2025 · ACME GROUP</span>
+      </div>
+
+      <div style="background:#F7F7F4;padding:24px;min-height:440px">
+        <sc-if value="{{ isOverview }}" hint-placeholder-val="{{ true }}">
+          <div>
+            <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:18px">
+              <span style="font-family:'Poppins',sans-serif;font-weight:600;font-size:17px">CPO performance dashboard</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#888780">Exported to Board pack · 14 Jul</span>
+            </div>
+            <div class="cpo-row" style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:12px">
+              <div style="background:#fff;border:1px solid #DCE0E5;border-radius:10px;padding:16px 18px">
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:#888780;margin-bottom:8px">Savings delivered</div>
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:27px;letter-spacing:-0.02em">$24.6M</div>
+                <div style="font-size:11.5px;color:#1D9E75;margin-top:4px">↑ 12% vs target</div>
+              </div>
+              <div style="background:#fff;border:1px solid #DCE0E5;border-radius:10px;padding:16px 18px">
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:#888780;margin-bottom:8px">Spend under mgmt</div>
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:27px;letter-spacing:-0.02em">72%</div>
+                <div style="font-size:11.5px;color:#1D9E75;margin-top:4px">↑ 8pp YoY</div>
+              </div>
+              <div style="background:#fff;border:1px solid #DCE0E5;border-radius:10px;padding:16px 18px">
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:#888780;margin-bottom:8px">Team capability</div>
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:27px;letter-spacing:-0.02em">71%</div>
+                <div style="font-size:11.5px;color:#1D9E75;margin-top:4px">↑ vs benchmark</div>
+              </div>
+              <div style="background:#fff;border:1px solid #DCE0E5;border-radius:10px;padding:16px 18px">
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:#888780;margin-bottom:8px">ESG coverage</div>
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:27px;letter-spacing:-0.02em">68%</div>
+                <div style="font-size:11.5px;color:#C0392B;margin-top:4px">↓ needs focus</div>
+              </div>
+            </div>
+            <div class="cpo-row" style="display:grid;grid-template-columns:1.5fr 1fr;gap:12px">
+              <div style="background:#fff;border:1px solid #DCE0E5;border-radius:10px;padding:18px 20px">
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:#888780;margin-bottom:18px">Savings delivered vs target — FY25 ($M)</div>
+                <div style="display:grid;grid-template-columns:repeat(8,1fr);gap:14px;align-items:end;height:150px">
+                  <div style="display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:8px;height:100%"><span style="width:100%;height:34%;background:#DCE0E5;border-radius:3px 3px 0 0;display:block"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:#888780">Q1</span></div>
+                  <div style="display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:8px;height:100%"><span style="width:100%;height:46%;background:#DCE0E5;border-radius:3px 3px 0 0;display:block"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:#888780">Q2</span></div>
+                  <div style="display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:8px;height:100%"><span style="width:100%;height:41%;background:#DCE0E5;border-radius:3px 3px 0 0;display:block"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:#888780">Q3</span></div>
+                  <div style="display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:8px;height:100%"><span style="width:100%;height:58%;background:#DCE0E5;border-radius:3px 3px 0 0;display:block"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:#888780">Q4</span></div>
+                  <div style="display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:8px;height:100%"><span style="width:100%;height:52%;background:#0F2547;border-radius:3px 3px 0 0;display:block"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:#5f5e5a">Q1</span></div>
+                  <div style="display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:8px;height:100%"><span style="width:100%;height:67%;background:#0F2547;border-radius:3px 3px 0 0;display:block"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:#5f5e5a">Q2</span></div>
+                  <div style="display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:8px;height:100%"><span style="width:100%;height:78%;background:#C9A02E;border-radius:3px 3px 0 0;display:block"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:#5f5e5a">Q3</span></div>
+                  <div style="display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:8px;height:100%"><span style="width:100%;height:91%;background:#C9A02E;border-radius:3px 3px 0 0;display:block"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:#5f5e5a">Q4</span></div>
+                </div>
+                <div style="display:flex;gap:18px;margin-top:16px;padding-top:14px;border-top:1px solid #EFEDE6;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.06em;text-transform:uppercase;color:#888780">
+                  <span style="display:flex;align-items:center;gap:6px"><span style="width:8px;height:8px;background:#DCE0E5;border-radius:2px;display:block"></span>FY24 actual</span>
+                  <span style="display:flex;align-items:center;gap:6px"><span style="width:8px;height:8px;background:#0F2547;border-radius:2px;display:block"></span>FY25 actual</span>
+                  <span style="display:flex;align-items:center;gap:6px"><span style="width:8px;height:8px;background:#C9A02E;border-radius:2px;display:block"></span>Forecast</span>
+                </div>
+              </div>
+              <div style="background:#fff;border:1px solid #DCE0E5;border-radius:10px;padding:18px 20px">
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:#888780;margin-bottom:16px">Module status</div>
+                <div style="display:flex;flex-direction:column">
+                  <div style="display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #EFEDE6"><span style="width:7px;height:7px;border-radius:50%;background:#1D9E75;display:block"></span><span style="font-size:12.5px;color:#0F2547">Category strategy</span><span style="margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5f5e5a">14 active</span></div>
+                  <div style="display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #EFEDE6"><span style="width:7px;height:7px;border-radius:50%;background:#1D9E75;display:block"></span><span style="font-size:12.5px;color:#0F2547">Skills assessment</span><span style="margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5f5e5a">28 / 31</span></div>
+                  <div style="display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #EFEDE6"><span style="width:7px;height:7px;border-radius:50%;background:#1D9E75;display:block"></span><span style="font-size:12.5px;color:#0F2547">Spend analysis</span><span style="margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5f5e5a">$444M</span></div>
+                  <div style="display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #EFEDE6"><span style="width:7px;height:7px;border-radius:50%;background:#C9A02E;display:block"></span><span style="font-size:12.5px;color:#0F2547">Stakeholder survey</span><span style="margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5f5e5a">+42 NPS</span></div>
+                  <div style="display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #EFEDE6"><span style="width:7px;height:7px;border-radius:50%;background:#C9A02E;display:block"></span><span style="font-size:12.5px;color:#0F2547">Supplier survey</span><span style="margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5f5e5a">+34 NPS</span></div>
+                  <div style="display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #EFEDE6"><span style="width:7px;height:7px;border-radius:50%;background:#C0392B;display:block"></span><span style="font-size:12.5px;color:#0F2547">ESG risk</span><span style="margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5f5e5a">68% cover</span></div>
+                  <div style="display:flex;align-items:center;gap:10px;padding:9px 0"><span style="width:7px;height:7px;border-radius:50%;background:#1D9E75;display:block"></span><span style="font-size:12.5px;color:#0F2547">Value tracker</span><span style="margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5f5e5a">$31.2M pipe</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isMaturity }}">
+          <div>
+            <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:18px">
+              <span style="font-family:'Poppins',sans-serif;font-weight:600;font-size:17px">Maturity assessment — 12 dimensions</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#888780">Benchmark: 3.2 · Industry peers n=64</span>
+            </div>
+            <div class="cpo-row" style="display:grid;grid-template-columns:1fr 300px;gap:12px">
+              <div style="background:#fff;border:1px solid #DCE0E5;border-radius:10px;padding:20px 22px">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px 32px">
+                  <div style="display:flex;flex-direction:column;gap:13px">
+                    <div style="display:grid;grid-template-columns:118px 1fr 30px;gap:10px;align-items:center"><span style="font-size:12.5px;color:#5f5e5a">Category mgmt</span><span style="height:6px;background:#EFEDE6;border-radius:3px;display:block"><span style="display:block;height:6px;width:82%;background:#0F2547;border-radius:3px"></span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5f5e5a;text-align:right">4.1</span></div>
+                    <div style="display:grid;grid-template-columns:118px 1fr 30px;gap:10px;align-items:center"><span style="font-size:12.5px;color:#5f5e5a">Strategy</span><span style="height:6px;background:#EFEDE6;border-radius:3px;display:block"><span style="display:block;height:6px;width:78%;background:#0F2547;border-radius:3px"></span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5f5e5a;text-align:right">3.9</span></div>
+                    <div style="display:grid;grid-template-columns:118px 1fr 30px;gap:10px;align-items:center"><span style="font-size:12.5px;color:#5f5e5a">Operating model</span><span style="height:6px;background:#EFEDE6;border-radius:3px;display:block"><span style="display:block;height:6px;width:74%;background:#0F2547;border-radius:3px"></span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5f5e5a;text-align:right">3.7</span></div>
+                    <div style="display:grid;grid-template-columns:118px 1fr 30px;gap:10px;align-items:center"><span style="font-size:12.5px;color:#5f5e5a">Biz partnering</span><span style="height:6px;background:#EFEDE6;border-radius:3px;display:block"><span style="display:block;height:6px;width:71%;background:#0F2547;border-radius:3px"></span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5f5e5a;text-align:right">3.6</span></div>
+                    <div style="display:grid;grid-template-columns:118px 1fr 30px;gap:10px;align-items:center"><span style="font-size:12.5px;color:#5f5e5a">Supplier mgmt</span><span style="height:6px;background:#EFEDE6;border-radius:3px;display:block"><span style="display:block;height:6px;width:68%;background:#0F2547;border-radius:3px"></span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5f5e5a;text-align:right">3.4</span></div>
+                    <div style="display:grid;grid-template-columns:118px 1fr 30px;gap:10px;align-items:center"><span style="font-size:12.5px;color:#5f5e5a">Cost optimisation</span><span style="height:6px;background:#EFEDE6;border-radius:3px;display:block"><span style="display:block;height:6px;width:66%;background:#0F2547;border-radius:3px"></span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5f5e5a;text-align:right">3.3</span></div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;gap:13px">
+                    <div style="display:grid;grid-template-columns:118px 1fr 30px;gap:10px;align-items:center"><span style="font-size:12.5px;color:#5f5e5a">Perf. management</span><span style="height:6px;background:#EFEDE6;border-radius:3px;display:block"><span style="display:block;height:6px;width:64%;background:#0F2547;border-radius:3px"></span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5f5e5a;text-align:right">3.2</span></div>
+                    <div style="display:grid;grid-template-columns:118px 1fr 30px;gap:10px;align-items:center"><span style="font-size:12.5px;color:#5f5e5a">C-suite engagement</span><span style="height:6px;background:#EFEDE6;border-radius:3px;display:block"><span style="display:block;height:6px;width:62%;background:#0F2547;border-radius:3px"></span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5f5e5a;text-align:right">3.1</span></div>
+                    <div style="display:grid;grid-template-columns:118px 1fr 30px;gap:10px;align-items:center"><span style="font-size:12.5px;color:#5f5e5a">People &amp; talent</span><span style="height:6px;background:#EFEDE6;border-radius:3px;display:block"><span style="display:block;height:6px;width:58%;background:#0F2547;border-radius:3px"></span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5f5e5a;text-align:right">2.9</span></div>
+                    <div style="display:grid;grid-template-columns:118px 1fr 30px;gap:10px;align-items:center"><span style="font-size:12.5px;color:#5f5e5a">Frameworks</span><span style="height:6px;background:#EFEDE6;border-radius:3px;display:block"><span style="display:block;height:6px;width:56%;background:#0F2547;border-radius:3px"></span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5f5e5a;text-align:right">2.8</span></div>
+                    <div style="display:grid;grid-template-columns:118px 1fr 30px;gap:10px;align-items:center"><span style="font-size:12.5px;color:#5f5e5a">Sustainability</span><span style="height:6px;background:#EFEDE6;border-radius:3px;display:block"><span style="display:block;height:6px;width:52%;background:#C9A02E;border-radius:3px"></span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5f5e5a;text-align:right">2.6</span></div>
+                    <div style="display:grid;grid-template-columns:118px 1fr 30px;gap:10px;align-items:center"><span style="font-size:12.5px;color:#5f5e5a">Digital enablement</span><span style="height:6px;background:#EFEDE6;border-radius:3px;display:block"><span style="display:block;height:6px;width:48%;background:#C9A02E;border-radius:3px"></span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5f5e5a;text-align:right">2.4</span></div>
+                  </div>
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:12px">
+                <div style="background:#0F2547;border-radius:10px;padding:22px;color:#fff">
+                  <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:14px">Overall maturity</div>
+                  <div style="display:flex;align-items:baseline;gap:6px"><span style="font-family:'IBM Plex Mono',monospace;font-size:44px;letter-spacing:-0.03em">3.8</span><span style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:rgba(255,255,255,0.45)">/ 5.0</span></div>
+                  <div style="font-size:12.5px;color:rgba(255,255,255,0.6);margin-top:6px">Top quartile · +0.6 vs benchmark</div>
+                  <div style="height:6px;background:rgba(255,255,255,0.14);border-radius:3px;margin-top:18px"><span style="display:block;height:6px;width:76%;background:#C9A02E;border-radius:3px"></span></div>
+                </div>
+                <div style="background:#fff;border:1px solid #DCE0E5;border-radius:10px;padding:18px 20px;flex:1">
+                  <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:#888780;margin-bottom:14px">Roadmap priorities</div>
+                  <div style="display:flex;flex-direction:column;gap:11px">
+                    <div style="display:flex;gap:10px;align-items:baseline"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#C9A02E">P1</span><span style="font-size:12.5px;color:#0F2547;line-height:1.45">Digital enablement — source-to-pay tooling</span></div>
+                    <div style="display:flex;gap:10px;align-items:baseline"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#C9A02E">P2</span><span style="font-size:12.5px;color:#0F2547;line-height:1.45">Scope 3 baseline across tier-1 suppliers</span></div>
+                    <div style="display:flex;gap:10px;align-items:baseline"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#C9A02E">P3</span><span style="font-size:12.5px;color:#0F2547;line-height:1.45">Category manager development programme</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isTeam }}">
+          <div>
+            <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:18px">
+              <span style="font-family:'Poppins',sans-serif;font-weight:600;font-size:17px">Skills assessment — 10 competencies</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#888780">28 of 31 responses · 90 questions</span>
+            </div>
+            <div class="cpo-row" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:12px">
+              <div style="background:#fff;border:1px solid #DCE0E5;border-radius:10px;padding:16px 18px"><div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:#888780;margin-bottom:8px">Average capability</div><div style="font-family:'IBM Plex Mono',monospace;font-size:27px;letter-spacing:-0.02em">71%</div><div style="font-size:11.5px;color:#1D9E75;margin-top:4px">↑ 5pp since FY24</div></div>
+              <div style="background:#fff;border:1px solid #DCE0E5;border-radius:10px;padding:16px 18px"><div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:#888780;margin-bottom:8px">Assessed</div><div style="font-family:'IBM Plex Mono',monospace;font-size:27px;letter-spacing:-0.02em">28 / 31</div><div style="font-size:11.5px;color:#888780;margin-top:4px">3 outstanding</div></div>
+              <div style="background:#fff;border:1px solid #DCE0E5;border-radius:10px;padding:16px 18px"><div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:#888780;margin-bottom:8px">Priority gaps</div><div style="font-family:'IBM Plex Mono',monospace;font-size:27px;letter-spacing:-0.02em">3</div><div style="font-size:11.5px;color:#C0392B;margin-top:4px">Below benchmark</div></div>
+            </div>
+            <div class="cpo-row" style="display:grid;grid-template-columns:1.4fr 1fr;gap:12px">
+              <div style="background:#fff;border:1px solid #DCE0E5;border-radius:10px;padding:18px 20px">
+                <div style="display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:#888780;margin-bottom:16px"><span>Competency</span><span>Team vs benchmark</span></div>
+                <div style="display:flex;flex-direction:column;gap:12px">
+                  <div style="display:grid;grid-template-columns:150px 1fr 34px;gap:12px;align-items:center"><span style="font-size:12.5px;color:#5f5e5a">Negotiation</span><span style="height:6px;background:#EFEDE6;border-radius:3px;display:block;position:relative"><span style="display:block;height:6px;width:84%;background:#0F2547;border-radius:3px"></span><span style="position:absolute;top:-3px;left:70%;width:1.5px;height:12px;background:#C9A02E;display:block"></span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5f5e5a;text-align:right">84%</span></div>
+                  <div style="display:grid;grid-template-columns:150px 1fr 34px;gap:12px;align-items:center"><span style="font-size:12.5px;color:#5f5e5a">Contract management</span><span style="height:6px;background:#EFEDE6;border-radius:3px;display:block;position:relative"><span style="display:block;height:6px;width:79%;background:#0F2547;border-radius:3px"></span><span style="position:absolute;top:-3px;left:70%;width:1.5px;height:12px;background:#C9A02E;display:block"></span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5f5e5a;text-align:right">79%</span></div>
+                  <div style="display:grid;grid-template-columns:150px 1fr 34px;gap:12px;align-items:center"><span style="font-size:12.5px;color:#5f5e5a">Sourcing process</span><span style="height:6px;background:#EFEDE6;border-radius:3px;display:block;position:relative"><span style="display:block;height:6px;width:76%;background:#0F2547;border-radius:3px"></span><span style="position:absolute;top:-3px;left:70%;width:1.5px;height:12px;background:#C9A02E;display:block"></span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5f5e5a;text-align:right">76%</span></div>
+                  <div style="display:grid;grid-template-columns:150px 1fr 34px;gap:12px;align-items:center"><span style="font-size:12.5px;color:#5f5e5a">Stakeholder mgmt</span><span style="height:6px;background:#EFEDE6;border-radius:3px;display:block;position:relative"><span style="display:block;height:6px;width:72%;background:#0F2547;border-radius:3px"></span><span style="position:absolute;top:-3px;left:70%;width:1.5px;height:12px;background:#C9A02E;display:block"></span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5f5e5a;text-align:right">72%</span></div>
+                  <div style="display:grid;grid-template-columns:150px 1fr 34px;gap:12px;align-items:center"><span style="font-size:12.5px;color:#5f5e5a">Category strategy</span><span style="height:6px;background:#EFEDE6;border-radius:3px;display:block;position:relative"><span style="display:block;height:6px;width:68%;background:#0F2547;border-radius:3px"></span><span style="position:absolute;top:-3px;left:70%;width:1.5px;height:12px;background:#C9A02E;display:block"></span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5f5e5a;text-align:right">68%</span></div>
+                  <div style="display:grid;grid-template-columns:150px 1fr 34px;gap:12px;align-items:center"><span style="font-size:12.5px;color:#5f5e5a">Commercial acumen</span><span style="height:6px;background:#EFEDE6;border-radius:3px;display:block;position:relative"><span style="display:block;height:6px;width:64%;background:#0F2547;border-radius:3px"></span><span style="position:absolute;top:-3px;left:70%;width:1.5px;height:12px;background:#C9A02E;display:block"></span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5f5e5a;text-align:right">64%</span></div>
+                  <div style="display:grid;grid-template-columns:150px 1fr 34px;gap:12px;align-items:center"><span style="font-size:12.5px;color:#5f5e5a">Data &amp; analytics</span><span style="height:6px;background:#EFEDE6;border-radius:3px;display:block;position:relative"><span style="display:block;height:6px;width:54%;background:#C9A02E;border-radius:3px"></span><span style="position:absolute;top:-3px;left:70%;width:1.5px;height:12px;background:#C9A02E;display:block"></span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5f5e5a;text-align:right">54%</span></div>
+                  <div style="display:grid;grid-template-columns:150px 1fr 34px;gap:12px;align-items:center"><span style="font-size:12.5px;color:#5f5e5a">Sustainable sourcing</span><span style="height:6px;background:#EFEDE6;border-radius:3px;display:block;position:relative"><span style="display:block;height:6px;width:49%;background:#C9A02E;border-radius:3px"></span><span style="position:absolute;top:-3px;left:70%;width:1.5px;height:12px;background:#C9A02E;display:block"></span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5f5e5a;text-align:right">49%</span></div>
+                </div>
+                <div style="display:flex;gap:18px;margin-top:16px;padding-top:14px;border-top:1px solid #EFEDE6;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.06em;text-transform:uppercase;color:#888780">
+                  <span style="display:flex;align-items:center;gap:6px"><span style="width:8px;height:8px;background:#0F2547;border-radius:2px;display:block"></span>Your team</span>
+                  <span style="display:flex;align-items:center;gap:6px"><span style="width:2px;height:10px;background:#C9A02E;display:block"></span>Industry benchmark 70%</span>
+                </div>
+              </div>
+              <div style="background:#fff;border:1px solid #DCE0E5;border-radius:10px;padding:18px 20px">
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:#888780;margin-bottom:14px">Development plan</div>
+                <div style="display:flex;flex-direction:column">
+                  <div style="display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid #EFEDE6"><span style="font-size:12.5px;color:#0F2547">Data &amp; analytics</span><span style="margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#5f5e5a">6 people</span></div>
+                  <div style="display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid #EFEDE6"><span style="font-size:12.5px;color:#0F2547">Sustainable sourcing</span><span style="margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#5f5e5a">9 people</span></div>
+                  <div style="display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid #EFEDE6"><span style="font-size:12.5px;color:#0F2547">Commercial acumen</span><span style="margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#5f5e5a">4 people</span></div>
+                  <div style="display:flex;align-items:center;gap:10px;padding:11px 0"><span style="font-size:12.5px;color:#0F2547">eLearning enrolled</span><span style="margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#5f5e5a">22 / 31</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isCategories }}">
+          <div>
+            <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:18px">
+              <span style="font-family:'Poppins',sans-serif;font-weight:600;font-size:17px">Spend analysis — FY25 addressable spend</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#888780">$444M · 1,208 suppliers · 96% classified</span>
+            </div>
+            <div style="background:#fff;border:1px solid #DCE0E5;border-radius:10px;overflow:hidden">
+              <div style="display:grid;grid-template-columns:1.5fr 0.9fr 0.7fr 0.8fr 0.9fr;gap:16px;padding:13px 20px;background:#F7F7F4;border-bottom:1px solid #DCE0E5;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:#888780">
+                <span>Category</span><span>Spend FY25</span><span>Suppliers</span><span>Strategy</span><span>Savings identified</span>
+              </div>
+              <div style="display:grid;grid-template-columns:1.5fr 0.9fr 0.7fr 0.8fr 0.9fr;gap:16px;padding:15px 20px;border-bottom:1px solid #EFEDE6;align-items:center" style-hover="background:#F7F7F4">
+                <span style="font-size:13.5px;color:#0F2547">IT &amp; technology</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px">$142.0M</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#5f5e5a">184</span><span style="font-size:12px;color:#1D9E75">Approved</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px">$8.4M</span>
+              </div>
+              <div style="display:grid;grid-template-columns:1.5fr 0.9fr 0.7fr 0.8fr 0.9fr;gap:16px;padding:15px 20px;border-bottom:1px solid #EFEDE6;align-items:center" style-hover="background:#F7F7F4">
+                <span style="font-size:13.5px;color:#0F2547">Logistics &amp; freight</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px">$114.0M</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#5f5e5a">92</span><span style="font-size:12px;color:#1D9E75">Approved</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px">$6.1M</span>
+              </div>
+              <div style="display:grid;grid-template-columns:1.5fr 0.9fr 0.7fr 0.8fr 0.9fr;gap:16px;padding:15px 20px;border-bottom:1px solid #EFEDE6;align-items:center" style-hover="background:#F7F7F4">
+                <span style="font-size:13.5px;color:#0F2547">Marketing &amp; media</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px">$86.0M</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#5f5e5a">211</span><span style="font-size:12px;color:#8A6516">In draft</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px">$4.7M</span>
+              </div>
+              <div style="display:grid;grid-template-columns:1.5fr 0.9fr 0.7fr 0.8fr 0.9fr;gap:16px;padding:15px 20px;border-bottom:1px solid #EFEDE6;align-items:center" style-hover="background:#F7F7F4">
+                <span style="font-size:13.5px;color:#0F2547">Facilities</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px">$62.0M</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#5f5e5a">308</span><span style="font-size:12px;color:#8A6516">In draft</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px">$3.2M</span>
+              </div>
+              <div style="display:grid;grid-template-columns:1.5fr 0.9fr 0.7fr 0.8fr 0.9fr;gap:16px;padding:15px 20px;border-bottom:1px solid #EFEDE6;align-items:center" style-hover="background:#F7F7F4">
+                <span style="font-size:13.5px;color:#0F2547">HR &amp; people</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px">$40.0M</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#5f5e5a">147</span><span style="font-size:12px;color:#888780">Not started</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#888780">—</span>
+              </div>
+              <div style="display:grid;grid-template-columns:1.5fr 0.9fr 0.7fr 0.8fr 0.9fr;gap:16px;padding:15px 20px;align-items:center" style-hover="background:#F7F7F4">
+                <span style="font-size:13.5px;color:#0F2547">Professional services</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px">$36.0M</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#5f5e5a">266</span><span style="font-size:12px;color:#1D9E75">Approved</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px">$2.9M</span>
+              </div>
+            </div>
+            <div class="cpo-row" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px">
+              <div style="background:#fff;border:1px solid #DCE0E5;border-radius:10px;padding:16px 18px"><div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:#888780;margin-bottom:8px">Top 20 supplier concentration</div><div style="font-family:'IBM Plex Mono',monospace;font-size:22px">64%</div></div>
+              <div style="background:#fff;border:1px solid #DCE0E5;border-radius:10px;padding:16px 18px"><div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:#888780;margin-bottom:8px">Tail spend (&lt;$50K)</div><div style="font-family:'IBM Plex Mono',monospace;font-size:22px">$28.4M</div></div>
+              <div style="background:#fff;border:1px solid #DCE0E5;border-radius:10px;padding:16px 18px"><div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:#888780;margin-bottom:8px">Savings pipeline</div><div style="font-family:'IBM Plex Mono',monospace;font-size:22px">$31.2M</div></div>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="modules" class="cpo-pad" style="background:#F7F7F4;border-top:1px solid #DCE0E5;padding:96px 48px">
+  <div style="max-width:1400px;margin:0 auto">
+    <div class="cpo-split" style="display:grid;grid-template-columns:0.85fr 1fr;gap:56px;align-items:end;margin-bottom:52px">
+      <div>
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8A6516;margin-bottom:18px">The toolkit</p>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:600;font-size:clamp(1.9rem,3vw,2.5rem);line-height:1.12;letter-spacing:-0.03em">Nine tools. One integrated platform.</h2>
+      </div>
+      <p style="font-size:16.5px;color:#5f5e5a;line-height:1.7;max-width:520px;text-wrap:pretty">Each module works standalone. Together, they give you a complete picture of your procurement function.</p>
+    </div>
+
+    <div style="border-top:1px solid #0F2547">
+      <div class="cpo-row" style="display:grid;grid-template-columns:56px 1.15fr 1.6fr 0.85fr;gap:28px;padding:26px 12px;border-bottom:1px solid #DCE0E5;align-items:start" style-hover="background:#fff">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#C9A02E;letter-spacing:0.1em;padding-top:2px">01</span>
+        <h3 style="font-family:'Poppins',sans-serif;font-weight:600;font-size:17px;letter-spacing:-0.02em;line-height:1.3">Category strategy &amp; spend intelligence</h3>
+        <p style="font-size:14.5px;color:#5f5e5a;line-height:1.6;text-wrap:pretty">Build category strategies backed by real data. Identify savings opportunities, track benefits delivery, and generate AI-powered strategy narratives.</p>
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#888780;line-height:2">Spend analysis · Kraljic matrix · AI narratives</p>
+      </div>
+      <div class="cpo-row" style="display:grid;grid-template-columns:56px 1.15fr 1.6fr 0.85fr;gap:28px;padding:26px 12px;border-bottom:1px solid #DCE0E5;align-items:start" style-hover="background:#fff">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#C9A02E;letter-spacing:0.1em;padding-top:2px">02</span>
+        <h3 style="font-family:'Poppins',sans-serif;font-weight:600;font-size:17px;letter-spacing:-0.02em;line-height:1.3">Procurement skills assessment</h3>
+        <p style="font-size:14.5px;color:#5f5e5a;line-height:1.6;text-wrap:pretty">Assess your team across 10 procurement competencies. Surface capability gaps and build a development roadmap grounded in evidence, not guesswork.</p>
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#888780;line-height:2">90 questions · 10 competencies · Benchmarking</p>
+      </div>
+      <div class="cpo-row" style="display:grid;grid-template-columns:56px 1.15fr 1.6fr 0.85fr;gap:28px;padding:26px 12px;border-bottom:1px solid #DCE0E5;align-items:start" style-hover="background:#fff">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#C9A02E;letter-spacing:0.1em;padding-top:2px">03</span>
+        <h3 style="font-family:'Poppins',sans-serif;font-weight:600;font-size:17px;letter-spacing:-0.02em;line-height:1.3">Maturity assessment &amp; transformation roadmap</h3>
+        <p style="font-size:14.5px;color:#5f5e5a;line-height:1.6;text-wrap:pretty">Understand where your function stands across 12 dimensions. Compare to industry benchmarks and build a prioritised improvement roadmap.</p>
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#888780;line-height:2">12 dimensions · Benchmarks · Roadmap</p>
+      </div>
+      <div class="cpo-row" style="display:grid;grid-template-columns:56px 1.15fr 1.6fr 0.85fr;gap:28px;padding:26px 12px;border-bottom:1px solid #DCE0E5;align-items:start" style-hover="background:#fff">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#C9A02E;letter-spacing:0.1em;padding-top:2px">04</span>
+        <h3 style="font-family:'Poppins',sans-serif;font-weight:600;font-size:17px;letter-spacing:-0.02em;line-height:1.3">Clean, categorised spend data</h3>
+        <p style="font-size:14.5px;color:#5f5e5a;line-height:1.6;text-wrap:pretty">Upload raw spend data, cleanse it with AI-powered supplier normalisation and taxonomy classification, then interrogate it to support strategy.</p>
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#888780;line-height:2">AI classification · Rules library · Drill-down</p>
+      </div>
+      <div class="cpo-row" style="display:grid;grid-template-columns:56px 1.15fr 1.6fr 0.85fr;gap:28px;padding:26px 12px;border-bottom:1px solid #DCE0E5;align-items:start" style-hover="background:#fff">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#C9A02E;letter-spacing:0.1em;padding-top:2px">05</span>
+        <h3 style="font-family:'Poppins',sans-serif;font-weight:600;font-size:17px;letter-spacing:-0.02em;line-height:1.3">Stakeholder satisfaction</h3>
+        <p style="font-size:14.5px;color:#5f5e5a;line-height:1.6;text-wrap:pretty">Understand how your internal customers feel about working with procurement. Identify what is working and where the relationship needs attention.</p>
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#888780;line-height:2">NPS tracking · Feedback themes</p>
+      </div>
+      <div class="cpo-row" style="display:grid;grid-template-columns:56px 1.15fr 1.6fr 0.85fr;gap:28px;padding:26px 12px;border-bottom:1px solid #DCE0E5;align-items:start" style-hover="background:#fff">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#C9A02E;letter-spacing:0.1em;padding-top:2px">06</span>
+        <h3 style="font-family:'Poppins',sans-serif;font-weight:600;font-size:17px;letter-spacing:-0.02em;line-height:1.3">Supplier relationship health</h3>
+        <p style="font-size:14.5px;color:#5f5e5a;line-height:1.6;text-wrap:pretty">Find out how your key suppliers experience working with your organisation. Spot relationship risks before they become commercial problems.</p>
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#888780;line-height:2">Supplier NPS · Segment views</p>
+      </div>
+      <div class="cpo-row" style="display:grid;grid-template-columns:56px 1.15fr 1.6fr 0.85fr;gap:28px;padding:26px 12px;border-bottom:1px solid #DCE0E5;align-items:start" style-hover="background:#fff">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#C9A02E;letter-spacing:0.1em;padding-top:2px">07</span>
+        <h3 style="font-family:'Poppins',sans-serif;font-weight:600;font-size:17px;letter-spacing:-0.02em;line-height:1.3">Carbon footprint &amp; modern slavery risk</h3>
+        <p style="font-size:14.5px;color:#5f5e5a;line-height:1.6;text-wrap:pretty">Understand your Scope 3 emissions profile and modern slavery exposure across your supply base. Report with confidence to your Board and regulators.</p>
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#888780;line-height:2">Scope 3 · Supplier mapping</p>
+      </div>
+      <div class="cpo-row" style="display:grid;grid-template-columns:56px 1.15fr 1.6fr 0.85fr;gap:28px;padding:26px 12px;border-bottom:1px solid #DCE0E5;align-items:start" style-hover="background:#fff">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#C9A02E;letter-spacing:0.1em;padding-top:2px">08</span>
+        <h3 style="font-family:'Poppins',sans-serif;font-weight:600;font-size:17px;letter-spacing:-0.02em;line-height:1.3">Value tracker</h3>
+        <p style="font-size:14.5px;color:#5f5e5a;line-height:1.6;text-wrap:pretty">Track savings initiatives, benefits delivery and procurement's contribution to the P&amp;L. Give your CFO and Board a credible performance picture.</p>
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#888780;line-height:2">Savings pipeline · Board reporting</p>
+      </div>
+      <div class="cpo-row" style="display:grid;grid-template-columns:56px 1.15fr 1.6fr 0.85fr;gap:28px;padding:26px 12px;border-bottom:1px solid #DCE0E5;align-items:start" style-hover="background:#fff">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#C9A02E;letter-spacing:0.1em;padding-top:2px">09</span>
+        <h3 style="font-family:'Poppins',sans-serif;font-weight:600;font-size:17px;letter-spacing:-0.02em;line-height:1.3">eLearning</h3>
+        <p style="font-size:14.5px;color:#5f5e5a;line-height:1.6;text-wrap:pretty">On-demand eLearning across 12 procurement topics. Learn at your own pace, track progress, and build team capability systematically over time.</p>
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#888780;line-height:2">12 topics · Team dashboards</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="who" class="cpo-pad" style="background:#0F2547;color:#fff;padding:96px 48px">
+  <div style="max-width:1400px;margin:0 auto">
+    <div class="cpo-split" style="display:grid;grid-template-columns:1fr 1fr;gap:0">
+      <div style="padding-right:64px">
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#C9A02E;margin-bottom:18px">For the CPO</p>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:600;font-size:clamp(1.6rem,2.3vw,2rem);line-height:1.15;letter-spacing:-0.03em;margin-bottom:16px;color:#fff">Built for CPOs. Trusted by their stakeholders.</h2>
+        <p style="font-size:16px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:30px;max-width:460px;text-wrap:pretty">You need to run a high-performing function and show it. CPO360 gives you the operational tools and the reporting layer to do both.</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0;max-width:460px">
+          <li style="display:flex;gap:14px;align-items:flex-start;font-size:14.5px;color:rgba(255,255,255,0.82);line-height:1.5;padding:13px 0;border-top:1px solid rgba(255,255,255,0.12)"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" stroke="#C9A02E" stroke-width="2" style="margin-top:4px;flex-shrink:0"><polyline points="1,6 4.5,9.5 11,2.5"></polyline></svg>Assess team capability and build development plans</li>
+          <li style="display:flex;gap:14px;align-items:flex-start;font-size:14.5px;color:rgba(255,255,255,0.82);line-height:1.5;padding:13px 0;border-top:1px solid rgba(255,255,255,0.12)"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" stroke="#C9A02E" stroke-width="2" style="margin-top:4px;flex-shrink:0"><polyline points="1,6 4.5,9.5 11,2.5"></polyline></svg>Develop category strategies backed by clean spend data</li>
+          <li style="display:flex;gap:14px;align-items:flex-start;font-size:14.5px;color:rgba(255,255,255,0.82);line-height:1.5;padding:13px 0;border-top:1px solid rgba(255,255,255,0.12)"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" stroke="#C9A02E" stroke-width="2" style="margin-top:4px;flex-shrink:0"><polyline points="1,6 4.5,9.5 11,2.5"></polyline></svg>Understand your maturity and build a realistic roadmap</li>
+          <li style="display:flex;gap:14px;align-items:flex-start;font-size:14.5px;color:rgba(255,255,255,0.82);line-height:1.5;padding:13px 0;border-top:1px solid rgba(255,255,255,0.12)"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" stroke="#C9A02E" stroke-width="2" style="margin-top:4px;flex-shrink:0"><polyline points="1,6 4.5,9.5 11,2.5"></polyline></svg>Track savings delivery vs target in real time</li>
+          <li style="display:flex;gap:14px;align-items:flex-start;font-size:14.5px;color:rgba(255,255,255,0.82);line-height:1.5;padding:13px 0;border-top:1px solid rgba(255,255,255,0.12);border-bottom:1px solid rgba(255,255,255,0.12)"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" stroke="#C9A02E" stroke-width="2" style="margin-top:4px;flex-shrink:0"><polyline points="1,6 4.5,9.5 11,2.5"></polyline></svg>Walk into your Board with a credible performance story</li>
+        </ul>
+      </div>
+      <div style="padding-left:64px;border-left:1px solid rgba(255,255,255,0.12)">
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#C9A02E;margin-bottom:18px">For CFOs, CEOs &amp; Boards</p>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:600;font-size:clamp(1.6rem,2.3vw,2rem);line-height:1.15;letter-spacing:-0.03em;margin-bottom:16px;color:#fff">Assurance without the spreadsheets.</h2>
+        <p style="font-size:16px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:30px;max-width:460px;text-wrap:pretty">You want assurance that procurement is performing — without wading through spreadsheets. The CPO Dashboard gives you exactly that.</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0;max-width:460px">
+          <li style="display:flex;gap:14px;align-items:flex-start;font-size:14.5px;color:rgba(255,255,255,0.82);line-height:1.5;padding:13px 0;border-top:1px solid rgba(255,255,255,0.12)"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" stroke="#C9A02E" stroke-width="2" style="margin-top:4px;flex-shrink:0"><polyline points="1,6 4.5,9.5 11,2.5"></polyline></svg>Single-page view of procurement performance</li>
+          <li style="display:flex;gap:14px;align-items:flex-start;font-size:14.5px;color:rgba(255,255,255,0.82);line-height:1.5;padding:13px 0;border-top:1px solid rgba(255,255,255,0.12)"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" stroke="#C9A02E" stroke-width="2" style="margin-top:4px;flex-shrink:0"><polyline points="1,6 4.5,9.5 11,2.5"></polyline></svg>Savings delivered vs target, at a glance</li>
+          <li style="display:flex;gap:14px;align-items:flex-start;font-size:14.5px;color:rgba(255,255,255,0.82);line-height:1.5;padding:13px 0;border-top:1px solid rgba(255,255,255,0.12)"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" stroke="#C9A02E" stroke-width="2" style="margin-top:4px;flex-shrink:0"><polyline points="1,6 4.5,9.5 11,2.5"></polyline></svg>ESG and modern slavery exposure across the supply base</li>
+          <li style="display:flex;gap:14px;align-items:flex-start;font-size:14.5px;color:rgba(255,255,255,0.82);line-height:1.5;padding:13px 0;border-top:1px solid rgba(255,255,255,0.12)"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" stroke="#C9A02E" stroke-width="2" style="margin-top:4px;flex-shrink:0"><polyline points="1,6 4.5,9.5 11,2.5"></polyline></svg>Supplier and stakeholder relationship health</li>
+          <li style="display:flex;gap:14px;align-items:flex-start;font-size:14.5px;color:rgba(255,255,255,0.82);line-height:1.5;padding:13px 0;border-top:1px solid rgba(255,255,255,0.12);border-bottom:1px solid rgba(255,255,255,0.12)"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" stroke="#C9A02E" stroke-width="2" style="margin-top:4px;flex-shrink:0"><polyline points="1,6 4.5,9.5 11,2.5"></polyline></svg>Maturity score benchmarked against industry peers</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="demo" class="cpo-pad" style="background:#F7F7F4;padding:96px 48px">
+  <div class="cpo-split" style="max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start">
+    <div>
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8A6516;margin-bottom:18px">See it in action</p>
+      <h2 style="font-family:'Poppins',sans-serif;font-weight:600;font-size:clamp(1.9rem,3vw,2.5rem);line-height:1.12;letter-spacing:-0.03em;margin-bottom:16px;color:#0F2547">Ready to see CPO360?</h2>
+      <p style="font-size:16.5px;color:#5f5e5a;line-height:1.7;max-width:440px;margin-bottom:32px;text-wrap:pretty">Book a 30-minute demo and we will show you what CPO360 looks like for your organisation. No obligation.</p>
+      <div style="border-top:1px solid #DCE0E5;padding-top:24px;display:flex;flex-direction:column;gap:14px;max-width:440px">
+        <a href="https://app.cpo360.com" style="display:flex;align-items:center;justify-content:space-between;font-size:15px;color:#0F2547;border-bottom:1px solid #DCE0E5;padding-bottom:14px" style-hover="color:#8A6516">Log in to CPO360<span style="font-family:'IBM Plex Mono',monospace;color:#C9A02E">→</span></a>
+        <button onClick="{{ openModal }}" style="display:flex;align-items:center;justify-content:space-between;font-size:15px;color:#0F2547;background:none;border:none;border-bottom:1px solid #DCE0E5;padding:0 0 14px;cursor:pointer;text-align:left;width:100%" style-hover="color:#8A6516">Request an account<span style="font-family:'IBM Plex Mono',monospace;color:#C9A02E">→</span></button>
+      </div>
+    </div>
+    <div style="background:#fff;border:1px solid #DCE0E5;border-radius:12px;padding:32px;box-shadow:0 12px 32px rgba(22,29,43,0.06)">
+      <sc-if value="{{ demoSent }}">
+        <div style="padding:40px 0;text-align:center">
+          <p style="font-family:'Poppins',sans-serif;font-weight:600;font-size:19px;margin-bottom:8px">Thanks — we will be in touch shortly.</p>
+          <p style="font-size:14.5px;color:#5f5e5a">Usually within one business day.</p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ demoOpen }}" hint-placeholder-val="{{ true }}">
+        <form onSubmit="{{ submitDemo }}" action="https://formspree.io/f/xeevgnyg" method="POST">
+          <input type="hidden" name="_subject" value="CPO360 demo request">
+          <div class="cpo-row" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px">
+            <div style="display:flex;flex-direction:column;gap:7px">
+              <label for="d-name" style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:#888780">Name</label>
+              <input id="d-name" name="name" type="text" required placeholder="Your name" style="border:1.5px solid #DCE0E5;border-radius:8px;padding:11px 13px;font-size:14.5px;color:#0F2547;background:#fff" style-focus="outline:none;border-color:#C9A02E">
+            </div>
+            <div style="display:flex;flex-direction:column;gap:7px">
+              <label for="d-email" style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:#888780">Work email</label>
+              <input id="d-email" name="email" type="email" required placeholder="you@company.com" style="border:1.5px solid #DCE0E5;border-radius:8px;padding:11px 13px;font-size:14.5px;color:#0F2547;background:#fff" style-focus="outline:none;border-color:#C9A02E">
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:14px">
+            <label for="d-org" style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:#888780">Organisation</label>
+            <input id="d-org" name="organisation" type="text" placeholder="Company name" style="border:1.5px solid #DCE0E5;border-radius:8px;padding:11px 13px;font-size:14.5px;color:#0F2547;background:#fff" style-focus="outline:none;border-color:#C9A02E">
+          </div>
+          <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:20px">
+            <label for="d-msg" style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:#888780">Message</label>
+            <textarea id="d-msg" name="message" placeholder="Tell us about your organisation and what you are looking to achieve." style="border:1.5px solid #DCE0E5;border-radius:8px;padding:11px 13px;font-size:14.5px;color:#0F2547;background:#fff;min-height:112px;resize:vertical" style-focus="outline:none;border-color:#C9A02E"></textarea>
+          </div>
+          <button type="submit" style="width:100%;background:#0F2547;color:#fff;border:none;border-radius:8px;padding:14px;font-size:15px;font-weight:600;cursor:pointer" style-hover="background:#1c386a">Book a demo</button>
+        </form>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<footer class="cpo-pad" style="background:#0A1B33;padding:28px 48px">
+  <div style="max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
+    <span style="font-family:'Poppins',sans-serif;font-weight:600;font-size:16px;color:#fff">CPO<span style="color:#C9A02E">360</span></span>
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:rgba(255,255,255,0.35);letter-spacing:0.06em">© 2025 CPO360 · A BlueNorth platform</p>
+  </div>
+</footer>
+
+<sc-if value="{{ modalOpen }}">
+  <div onClick="{{ overlayClick }}" style="position:fixed;inset:0;z-index:200;background:rgba(14,26,51,0.55);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;padding:24px;overflow:auto">
+    <div style="background:#fff;border-radius:14px;width:100%;max-width:540px;padding:36px;position:relative;box-shadow:0 40px 100px rgba(14,26,51,0.35);animation:rise 0.28s ease-out both">
+      <button onClick="{{ closeModal }}" aria-label="Close" style="position:absolute;top:18px;right:18px;background:none;border:none;cursor:pointer;color:#888780;font-size:18px;line-height:1">✕</button>
+      <sc-if value="{{ regSent }}">
+        <div style="padding:28px 0;text-align:center">
+          <p style="font-family:'Poppins',sans-serif;font-weight:600;font-size:20px;margin-bottom:8px">Request received</p>
+          <p style="font-size:14.5px;color:#5f5e5a;line-height:1.6">Thanks — we will review your details and be in touch within one business day to get you set up.</p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ regOpen }}" hint-placeholder-val="{{ true }}">
+        <div>
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#8A6516;margin-bottom:10px">Get access</p>
+          <h3 style="font-family:'Poppins',sans-serif;font-weight:600;font-size:23px;letter-spacing:-0.02em;margin-bottom:8px">Request your account</h3>
+          <p style="font-size:14.5px;color:#5f5e5a;line-height:1.6;margin-bottom:26px">Send us your details and we will set you up in CPO360.</p>
+          <form onSubmit="{{ submitReg }}" action="https://formspree.io/f/xeevgnyg" method="POST">
+            <input type="hidden" name="_subject" value="New CPO360 Account Request">
+            <input type="hidden" name="form_type" value="Account Registration">
+            <div class="cpo-row" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px">
+              <div style="display:flex;flex-direction:column;gap:7px">
+                <label for="r-first" style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:#888780">First name</label>
+                <input id="r-first" name="first_name" type="text" required placeholder="Jane" style="border:1.5px solid #DCE0E5;border-radius:8px;padding:11px 13px;font-size:14.5px;color:#0F2547" style-focus="outline:none;border-color:#C9A02E">
+              </div>
+              <div style="display:flex;flex-direction:column;gap:7px">
+                <label for="r-last" style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:#888780">Last name</label>
+                <input id="r-last" name="last_name" type="text" required placeholder="Smith" style="border:1.5px solid #DCE0E5;border-radius:8px;padding:11px 13px;font-size:14.5px;color:#0F2547" style-focus="outline:none;border-color:#C9A02E">
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:14px">
+              <label for="r-email" style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:#888780">Work email</label>
+              <input id="r-email" name="email" type="email" required placeholder="jane@company.com" style="border:1.5px solid #DCE0E5;border-radius:8px;padding:11px 13px;font-size:14.5px;color:#0F2547" style-focus="outline:none;border-color:#C9A02E">
+            </div>
+            <div class="cpo-row" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px">
+              <div style="display:flex;flex-direction:column;gap:7px">
+                <label for="r-title" style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:#888780">Job title</label>
+                <input id="r-title" name="job_title" type="text" placeholder="Chief Procurement Officer" style="border:1.5px solid #DCE0E5;border-radius:8px;padding:11px 13px;font-size:14.5px;color:#0F2547" style-focus="outline:none;border-color:#C9A02E">
+              </div>
+              <div style="display:flex;flex-direction:column;gap:7px">
+                <label for="r-org" style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:#888780">Organisation</label>
+                <input id="r-org" name="organisation" type="text" required placeholder="Company name" style="border:1.5px solid #DCE0E5;border-radius:8px;padding:11px 13px;font-size:14.5px;color:#0F2547" style-focus="outline:none;border-color:#C9A02E">
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:20px">
+              <label for="r-msg" style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:#888780">Anything else</label>
+              <textarea id="r-msg" name="message" placeholder="e.g. I am interested in the maturity diagnostic." style="border:1.5px solid #DCE0E5;border-radius:8px;padding:11px 13px;font-size:14.5px;color:#0F2547;min-height:88px;resize:vertical" style-focus="outline:none;border-color:#C9A02E"></textarea>
+            </div>
+            <button type="submit" style="width:100%;background:#C9A02E;color:#0F2547;border:none;border-radius:8px;padding:14px;font-size:15px;font-weight:600;cursor:pointer" style-hover="background:#E5B73B">{{ regBtnLabel }}</button>
+          </form>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { view: 'overview', modalOpen: false, regSent: false, regBusy: false, demoSent: false };
+
+  componentDidMount() {
+    this._esc = (e) => { if (e.key === 'Escape') this.setState({ modalOpen: false }); };
+    document.addEventListener('keydown', this._esc);
+  }
+  componentWillUnmount() { document.removeEventListener('keydown', this._esc); }
+
+  async post(form) {
+    const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+    return res.ok;
+  }
+
+  renderVals() {
+    const view = this.state.view;
+    const base = 'border:none;cursor:pointer;font-size:13px;font-family:inherit;padding:7px 14px;border-radius:7px;transition:background 200ms cubic-bezier(0.2,0,0.1,1),color 200ms';
+    const tabs = [
+      ['overview', 'Overview'], ['maturity', 'Maturity'], ['team', 'Team'], ['categories', 'Categories']
+    ].map(([id, label]) => ({
+      id, label,
+      onClick: () => this.setState({ view: id }),
+      style: id === view
+        ? base + ';background:#fff;color:#0F2547;font-weight:600'
+        : base + ';background:transparent;color:rgba(255,255,255,0.55);font-weight:400'
+    }));
+
+    return {
+      tabs,
+      isOverview: view === 'overview',
+      isMaturity: view === 'maturity',
+      isTeam: view === 'team',
+      isCategories: view === 'categories',
+      modalOpen: this.state.modalOpen,
+      regSent: this.state.regSent,
+      regOpen: !this.state.regSent,
+      demoSent: this.state.demoSent,
+      demoOpen: !this.state.demoSent,
+      regBtnLabel: this.state.regBusy ? 'Sending…' : 'Request access',
+      openModal: () => this.setState({ modalOpen: true }),
+      closeModal: () => this.setState({ modalOpen: false }),
+      overlayClick: (e) => { if (e.target === e.currentTarget) this.setState({ modalOpen: false }); },
+      submitDemo: async (e) => {
+        e.preventDefault();
+        const ok = await this.post(e.target);
+        if (ok) this.setState({ demoSent: true });
+      },
+      submitReg: async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        this.setState({ regBusy: true });
+        const ok = await this.post(form);
+        this.setState({ regBusy: false, regSent: ok });
+        if (!ok) alert('Something went wrong — please try again or email hello@cpo360.com');
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>
